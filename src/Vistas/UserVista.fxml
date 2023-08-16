@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="657.0" prefWidth="950.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Vistas.UserVistaController">
+    <tabs>
+        <Tab text="Upload Text">
+            <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="600.0" prefWidth="906.0">
+                    <children>
+                        <Button fx:id="searchFile" layoutX="20.0" layoutY="14.0" mnemonicParsing="false" onAction="#searFil" prefHeight="31.0" prefWidth="560.0" text="Search File" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
+                        <Button fx:id="calcularPlagio" disable="true" layoutX="65.0" layoutY="96.0" mnemonicParsing="false" onAction="#calPlag" prefHeight="29.0" prefWidth="200.0" text="Calcular Plagio" AnchorPane.leftAnchor="65.0" />
+                        <Button fx:id="limpiarArchivo" disable="true" layoutX="335.0" layoutY="95.0" mnemonicParsing="false" onAction="#limpiarArchivo" prefHeight="29.0" prefWidth="200.0" text="Limpiar Archivo" AnchorPane.rightAnchor="65.0" />
+                        <GridPane layoutY="238.0" prefHeight="425.0" prefWidth="950.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="291.0" minWidth="10.0" prefWidth="236.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="445.0" minWidth="10.0" prefWidth="202.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="588.0" minWidth="10.0" prefWidth="512.0" />
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            </rowConstraints>
+                            <children>
+                                <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                                    <children>
+                                        <CheckBox fx:id="cbplagioparcial" disable="true" layoutX="23.0" layoutY="115.0" mnemonicParsing="false" text="Plagio Parcial" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="115.0" />
+                                        <CheckBox fx:id="cbplagiototal" disable="true" layoutX="23.0" layoutY="54.0" mnemonicParsing="false" text="Plagio Total" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="54.0" />
+                                        <CheckBox fx:id="noplagio" disable="true" layoutX="23.0" layoutY="176.0" mnemonicParsing="false" text="NO PLAGIO" AnchorPane.leftAnchor="40.0" />
+                                    </children>
+                                </AnchorPane>
+                                <AnchorPane fx:id="grid2" prefHeight="425.0" prefWidth="220.0" visible="false" GridPane.columnIndex="1">
+                                    <children>
+                                        <Label layoutY="113.0" text="Porcentaje de Plagio: " AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="113.0">
+                                            <font>
+                                                <Font size="14.0" />
+                                            </font>
+                                        </Label>
+                                        <Label fx:id="percentage" layoutX="10.0" layoutY="163.0" prefHeight="30.0" prefWidth="83.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="163.0">
+                                            <font>
+                                                <Font size="25.0" />
+                                            </font>
+                                        </Label>
+                                    </children>
+                                </AnchorPane>
+                                <AnchorPane fx:id="grid3" prefHeight="200.0" prefWidth="200.0" visible="false" GridPane.columnIndex="2" />
+                            </children>
+                        </GridPane>
+                    </children>
+                </AnchorPane>
+            </content>
+        </Tab>
+        <Tab text="Configuracion de deteccion">
+            <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                    <children>
+                        <Label layoutX="10.0" layoutY="36.0" prefHeight="26.0" prefWidth="572.0" text="Cantidad palabras consecutivas se considera en el porcentaje de plagio" textAlignment="CENTER" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="0.0">
+                            <font>
+                                <Font name="Serif Regular" size="15.0" />
+                            </font>
+                        </Label>
+                        <Spinner fx:id="minWrods" editable="true" layoutX="10.0" layoutY="84.0" prefHeight="32.0" prefWidth="197.0" AnchorPane.leftAnchor="10.0" />
+                    </children>
+                </AnchorPane>
+            </content>
+        </Tab>
+        <Tab text="Add BD">
+            <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                    <children>
+                        <Button layoutX="20.0" layoutY="14.0" mnemonicParsing="false" onAction="#addDB" prefHeight="31.0" prefWidth="560.0" text="Add File to Data Base" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
+                        <ListView fx:id="listaDB" layoutX="40.0" layoutY="80.0" prefHeight="458.0" prefWidth="870.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" />
+                    </children>
+                </AnchorPane>
+            </content>
+        </Tab>
+        <Tab fx:id="resEspecificos" disable="true" text="Resultados Especificos">
+            <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                    <children>
+                        <TableView fx:id="tabla" layoutX="98.0" layoutY="55.0" prefHeight="462.0" prefWidth="760.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="95.0" AnchorPane.rightAnchor="95.0">
+                            <columns>
+                                <TableColumn fx:id="title" prefWidth="593.0" text="Titulo del articulo copiado" />
+                                <TableColumn fx:id="porcentaje" prefWidth="161.0" text="Porcentaje de similitud" />
+                            </columns>
+                        </TableView>
+                  <Label layoutX="95.0" layoutY="45.0" text="A continuacion se muestra con mas detalle los niveles de plagio de cada base de datos:">
+                     <font>
+                        <Font name="TeXGyreAdventor-Regular" size="14.0" />
+                     </font>
+                  </Label>
+                    </children>
+                </AnchorPane>
+            </content>
+        </Tab>
+    </tabs>
+</TabPane>
